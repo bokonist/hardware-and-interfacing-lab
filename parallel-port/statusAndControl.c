@@ -8,18 +8,18 @@ int main()
 	int data;
 	data = inportb(PPORT+1); // input 1 byte of hex data from the specified port. PPORT+1 is the status register.
 	printf("Data in status register is\n");
-	printf("Pin 15 (Error): %d",(data&0x08)/0x08);
-	printf("Pin 13 (Select): %d",(data&0x10)/0x10);
-	printf("Pin 12 (Paper-Out): %d",(data&0x20)/0x20);
-	printf("Pin 10 (Ack): %d",(data&0x40)/0x40);
-	printf("Pin 11 (Busy): %d",(data&0x80)/0x80);
+	printf("Pin 15 (Error): %d",(data&0x08)/0x08); // & with 		00001000
+	printf("Pin 13 (Select): %d",(data&0x10)/0x10); // & with 		00010000
+	printf("Pin 12 (Paper-Out): %d",(data&0x20)/0x20); // & with 	00100000
+	printf("Pin 10 (Ack): %d",(data&0x40)/0x40); // & with 			01000000
+	printf("Pin 11 (Busy): %d",(data&0x80)/0x80); // & with 		10000000
 
 	data= inportb(PPORT+2); // PPORT+2 is the control register
 	printf("Data in the control register is\n");
-	printf("Pin 1 (Strobe): %d",(data&0x01)/0x01);
-	printf("Pin 14 (Linefeed): %d",(data&0x02)/0x02);
-	printf("Pin 16 (Reset): %d",(data&0x04)/0x04);
-	printf("Pin 17 (Select Printer): %d",(data&0x08)/0x08);
+	printf("Pin 1 (Strobe): %d",(data&0x01)/0x01);  	// & with 		00000001
+	printf("Pin 14 (Linefeed): %d",(data&0x02)/0x02);	// & with 		00000010
+	printf("Pin 16 (Reset): %d",(data&0x04)/0x04);		// & with 		00000100
+	printf("Pin 17 (Select Printer): %d",(data&0x08)/0x08);// & with 	00001000
 	getch();
 	return 0;
 }
