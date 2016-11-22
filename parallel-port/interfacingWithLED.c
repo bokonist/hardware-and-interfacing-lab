@@ -26,7 +26,7 @@ Pin No (DB25)		Signal name			Direction			Register-bit
 7					Data5				Out					Data-5
 8					Data6				Out					Data-6
 9					Data7				Out					Data-7
-10					Ack					In					Status-6
+10					Ack				In					Status-6
 11					Busy				In					/Status-7
 12					Paper-Out			In					Status-5
 13					Select				In					Status-4
