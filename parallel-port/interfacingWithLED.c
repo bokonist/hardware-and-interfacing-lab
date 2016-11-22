@@ -30,11 +30,11 @@ Pin No (DB25)		Signal name			Direction			Register-bit
 11					Busy				In					/Status-7
 12					Paper-Out			In					Status-5
 13					Select				In					Status-4
-14					Linefeed			In/Out				/Control-1
+14					Linefeed			In/Out					/Control-1
 15					Error				In					Status-3
-16					Reset				In/Out				Control-2
-17					Select-Printer		In/Out				/Control-3
-18-25				Ground				-					-
+16					Reset				In/Out					Control-2
+17					Select-Printer			In/Out					/Control-3
+18-25					Ground					-				-	-
 
 {/control means active low}
 
