@@ -8,18 +8,18 @@ int main()
 	int data;
 	data = inportb(PPORT+1); // input 1 byte of hex data from the specified port. PPORT+1 is the status register.
 	printf("Data in status register is\n");
-	printf("Pin 15: %d",(data&0x08)/0x08);
-	printf("Pin 13: %d",(data&0x10)/0x10);
-	printf("Pin 12: %d",(data&0x20)/0x20);
-	printf("Pin 11: %d",(data&0x40)/0x40);
-	printf("Pin 10: %d",(data&0x80)/0x80);
+	printf("Pin 15 (Error): %d",(data&0x08)/0x08);
+	printf("Pin 13 (Select): %d",(data&0x10)/0x10);
+	printf("Pin 12 (Paper-Out): %d",(data&0x20)/0x20);
+	printf("Pin 10 (Ack): %d",(data&0x40)/0x40);
+	printf("Pin 11 (Busy): %d",(data&0x80)/0x80);
 
 	data= inportb(PPORT+2); // PPORT+2 is the control register
 	printf("Data in the control register is\n");
-	printf("Pin 1: %d",(data&0x01)/0x01);
-	printf("Pin 14: %d",(data&0x02)/0x02);
-	printf("Pin 16: %d",(data&0x04)/0x04);
-	printf("Pin 17: %d",(data&0x08)/0x08);
+	printf("Pin 1 (Strobe): %d",(data&0x01)/0x01);
+	printf("Pin 14 (Linefeed): %d",(data&0x02)/0x02);
+	printf("Pin 16 (Reset): %d",(data&0x04)/0x04);
+	printf("Pin 17 (Select Printer): %d",(data&0x08)/0x08);
 	getch();
 	return 0;
 }
@@ -44,5 +44,5 @@ Pin No (DB25)		Signal name			Direction			Register-bit
 17					Select-Printer		In/Out				/Control-3
 18-25				Ground				-					-	-
 
-control pins from MSB to LSB is 17,16,14,1 - 4 bits
-status pins from MSB to LSB is 11,10,12,13,15 - 5 bits
+control pins from MSB to LSB is 17,16,14,1 - 4 bits [SP,R,L,S]
+status pins from MSB to LSB is 11,10,12,13,15 - 5 bits [B,A,P,S,E]
