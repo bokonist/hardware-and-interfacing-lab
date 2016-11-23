@@ -52,4 +52,4 @@ Request To Send				7
 Clear To Send				8
 Signal Ground				5
 
-from MSB to LSB [td, rd, dtr, dcd, dsr, ri, rts, cts, ground]
+from LSB to MSB [td, rd, dtr, dcd, dsr, ri, rts, cts, ground]

@@ -15,6 +15,7 @@ void resetxy(int &a, int &b, int &ch) //to reset the coordinates if they go out 
 
 int main()
 {
+	// connect the pins 2 and 3 of the serial port with a wire.
 	clrscr();
 	int data;
 	x1=1; x2=1; y1=3; y2=14;
@@ -58,7 +59,7 @@ int main()
 					x2++;
 					resetxy(x2,y2,rd);
 				}
-			}while(!(dsr&0x01)); // keep receiving data as long as the dataset ready signal is high
+			}while((dsr&0x01)); // keep receiving data as long as the dataset ready signal is high
 		}
 	}while(!(td&0x01)); //keep sending data from user till ~ is entered
 	getch();
